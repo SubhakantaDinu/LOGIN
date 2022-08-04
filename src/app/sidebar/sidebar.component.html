@@ -1,0 +1,26 @@
+<mat-toolbar color="primary" class="" mat-elevation-z6 *ngIf="isLoggedIn">
+    <mat-icon class="hamburger" (click)="sidenav.toggle()" *ngIf="!sidenav.opened; else showCross">menu</mat-icon>
+    <ng-template #showCross>
+        <mat-icon class="hamburger" aria-label="Side nav toggle icon" (click)="sidenav.toggle()">close</mat-icon>
+    </ng-template>
+
+    <div class="divider"></div>
+
+    <div class="spacer"></div>
+    <a mat-raised-button color="accent" (click)="logout()">Logout</a>
+</mat-toolbar>
+
+<mat-sidenav-container class="main-container">
+    <mat-sidenav #sidenav mode="side" class="sidebar">
+        <a mat-button routerLink="/dashboard/home">Home</a>
+        <a mat-button routerLink="/dashboard/services">Services</a>
+        <a mat-button routerLink="/projects">Projects</a>
+        <a mat-button routerLink="/files">Files</a>
+        <a mat-button routerLink="aboutus">Reports</a>
+        <a mat-button routerLink="aboutus">About Us</a>
+        <!-- <a mat-raised-button color="accent" routerLink="signup">Content</a> -->
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>

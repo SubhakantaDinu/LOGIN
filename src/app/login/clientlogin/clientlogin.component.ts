@@ -13,7 +13,7 @@ export class ClientloginComponent implements OnInit {
   ngOnInit() {
   }
  login(){
-  console.log("login");
-  this.router.navigate(['dashboard']);
+  localStorage.setItem("auth_status", "true"); 
+  this.router.navigate(['/dashboard']);
  }
 }
